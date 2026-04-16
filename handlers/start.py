@@ -12,7 +12,7 @@ async def cmd_start(message: types.Message):
     await message.answer(
         f"👋 Привет, {message.from_user.first_name}! Я ThinkBot — твой умный AI ассистент.\n\n"
         f"💬 Просто напиши мне что угодно и я отвечу.\n"
-        f"⚠️ Лимит: {os.getenv('DAILY_LIMIT', 10)} запросов в день.\n\nНачнём?"
+        f"⚠️ Лимит: {os.getenv('DAILY_LIMIT', '10')} запросов в день.\n\nНачнём?"
     )
 
 

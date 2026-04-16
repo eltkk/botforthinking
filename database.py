@@ -93,7 +93,7 @@ async def get_stats() -> dict:
         )
         total_messages = await session.scalar(select(func.count(Message.id)))
         banned_users = await session.scalar(
-            select(func.count(User.id)).where(User.is_banned == True)
+            select(func.count(User.id)).where(User.is_banned.is_(True))
         )
         return {
             "total_users": total_users or 0,
@@ -135,6 +135,6 @@ async def get_all_users() -> list[User]:
     """Возвращает всех незабаненных пользователей (для broadcast)."""
     async with AsyncSessionLocal() as session:
         result = await session.execute(
-            select(User).where(User.is_banned == False)
+            select(User).where(User.is_banned.is_(False))
         )
         return list(result.scalars().all())
