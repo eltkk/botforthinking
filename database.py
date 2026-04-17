@@ -9,7 +9,7 @@ from models import Base, User, Message
 
 load_dotenv()
 
-DB_URL = os.getenv("DB_URL", "sqlite+aiosqlite:///thinkbot.db")
+DB_URL = os.getenv("DB_URL", "sqlite+aiosqlite:///data/thinkbot.db")
 engine = create_async_engine(DB_URL, echo=False)
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
