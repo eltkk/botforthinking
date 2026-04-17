@@ -1,5 +1,5 @@
 import os
-from aiogram import Router, types
+from aiogram import Router, types, F
 from aiogram.filters import Command
 from database import get_or_create_user, clear_chat_history
 
@@ -36,4 +36,9 @@ async def cmd_limit(message: types.Message):
     limit = int(os.getenv("DAILY_LIMIT", 10))
     left = max(0, limit - user.requests_today)
     await message.answer(f"📊 Осталось запросов: {left} из {limit} на сегодня.")
+
+
+@router.message(F.text & F.text.startswith("/"))
+async def cmd_unknown(message: types.Message):
+    await message.answer("❓ Неизвестная команда. Напишите /help для списка команд.")
 
