@@ -95,8 +95,8 @@ docker-compose logs -f bot
 ```env
 BOT_TOKEN=токен_от_BotFather
 OPENROUTER_API_KEY=ключ_с_openrouter.ai
-ADMIN_ID=ваш_telegram_id        # узнать у @userinfobot
-DAILY_LIMIT=10                   # лимит запросов в день на пользователя
+ADMIN_ID=ваш_telegram_id # узнать у @userinfobot
+DAILY_LIMIT=10 # лимит запросов в день на пользователя
 
 # SQLite (по умолчанию, для локальной разработки):
 DB_URL=sqlite+aiosqlite:///data/thinkbot.db
@@ -152,28 +152,28 @@ alembic downgrade -1
 
 ```
 botforthinking/
-├── main.py                    # Точка входа, запуск бота
-├── models.py                  # Модели БД (User, Message)
-├── database.py                # Функции работы с БД
+├── main.py # Точка входа, запуск бота
+├── models.py # Модели БД (User, Message)
+├── database.py # Функции работы с БД
 ├── handlers/
-│   ├── start.py               # Команды /start, /help, /reset, /limit
-│   ├── chat.py                # Обработчик сообщений и вызов AI
-│   └── admin.py               # Admin-команды (/stats, /ban, /unban, /broadcast)
+│   ├── start.py # Команды /start, /help, /reset, /limit
+│   ├── chat.py # Обработчик сообщений и вызов AI
+│   └── admin.py # Admin-команды (/stats, /ban, /unban, /broadcast)
 ├── middlewares/
-│   └── limit.py               # Проверка лимита и бана перед каждым запросом
-├── alembic/                   # Миграции БД
+│   └── limit.py # Проверка лимита и бана перед каждым запросом
+├── alembic/ # Миграции БД
 │   └── versions/
-│       └── 001_initial.py     # Начальная миграция
+│       └── 001_initial.py # Начальная миграция
 ├── tests/
-│   └── test_database.py       # Тесты функций базы данных
+│   └── test_database.py # Тесты функций базы данных
 ├── .github/
 │   └── workflows/
-│       └── ci.yml             # GitHub Actions — автозапуск тестов
-├── .env.example               # Шаблон переменных окружения
-├── Dockerfile                 # Сборка Docker-образа
-├── docker-compose.yml         # Запуск бота + PostgreSQL
-├── pytest.ini                 # Настройки pytest
-└── requirements.txt           # Зависимости
+│       └── ci.yml # GitHub Actions — автозапуск тестов
+├── .env.example # Шаблон переменных окружения
+├── Dockerfile # Сборка Docker-образа
+├── docker-compose.yml # Запуск бота + PostgreSQL
+├── pytest.ini # Настройки pytest
+└── requirements.txt # Зависимости
 ```
 
 ## Технологии
